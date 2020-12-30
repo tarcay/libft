@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 11:37:44 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/20 11:38:53 by tarcay           ###   ########.fr       */
+/*   Updated: 2020/12/30 22:00:18 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	str = (char *)s;
 	i = 0;
-	while (i < (int)n)
+	while (i < n)
 	{
 		if (str[i] == (unsigned char)c)
-			return (str + i);
+			return ((unsigned char)str + i);
 		i++;
 	}
 	return (NULL);
