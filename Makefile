@@ -6,7 +6,7 @@
 #    By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/26 16:32:08 by tarcay            #+#    #+#              #
-#    Updated: 2020/12/30 18:41:27 by tarcay           ###   ########.fr        #
+#    Updated: 2020/12/26 16:32:08 by tarcay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ RM		= rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-c.o:
+.c.o:
 		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
