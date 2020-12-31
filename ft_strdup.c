@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:12:25 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/20 12:14:27 by tarcay           ###   ########.fr       */
+/*   Updated: 2020/12/31 11:31:14 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	int		i;
 
 	s_tmp = (char *)s;
-	if (!(str = malloc(sizeof(char *) * ft_strlen(s_tmp) + 1)))
+	if (!(str = malloc(sizeof(char) * ft_strlen(s_tmp) + 1)))
 		return (NULL);
 	i = 0;
 	while (s_tmp[i])
