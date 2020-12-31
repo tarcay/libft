@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:26:51 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/20 12:55:19 by tarcay           ###   ########.fr       */
+/*   Updated: 2020/12/31 10:19:13 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	str1 = (char *)s1;
 	str2 = (char *)s2;
 	i = 0;
-	while (i < n)
-	{
-		if (str1[i] != str2[i])
-		{
-			if (str1[i] > str2[i])
-				return (1);
-			if (str1[i] < str2[i])
-				return (-1);
-		}
+	if (n == 0)
+		return (0);
+	while (str1[i] == str2[i] && str1[i] != '\0' && str2[i] != '\0' && i < n - 1)
 		i++;
-	}
-	return (0);
+	return (str1[i] - str2[i]);
 }
