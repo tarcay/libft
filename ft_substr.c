@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 13:10:12 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/20 13:11:58 by tarcay           ###   ########.fr       */
+/*   Updated: 2020/12/31 11:34:29 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	else
 	{
-		if (!(str = malloc(sizeof(char *) * len + 1)))
+		if (!(str = malloc(sizeof(char) * len + 1)))
 			return (NULL);
 		i = 0;
 		while (i < len && *s_tmp)
