@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:41:53 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/20 13:08:48 by tarcay           ###   ########.fr       */
+/*   Updated: 2020/12/31 11:38:43 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	while (is_set(s1[end], set) == 1 && end >= 0)
 		end--;
-	if (!(str = malloc(sizeof(char *) * (end - start) + 2)))
+	if (!(str = malloc(sizeof(char) * (end - start) + 2)))
 		return (NULL);
 	i = 0;
 	while (start <= end)
