@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:17:45 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/20 12:19:43 by tarcay           ###   ########.fr       */
+/*   Updated: 2020/12/31 11:16:37 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	while (dest[i] != '\0' && i < n)
 		i++;
 	j = i;
-	while (src[i - j] != '\0' && i < n - 1)
+	while (src[i - j] != '\0' && i < n - 1 && n > 0)
 	{
 		dest[i] = src[i - j];
 		i++;
