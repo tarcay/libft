@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:14:04 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/26 16:03:34 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 21:45:32 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_lst;
 	t_list	*new_elem;
 
-	if (!f || !del)
+	if (!f || !del || !lst)
 		return (NULL);
 	new_lst = NULL;
 	while (lst)
