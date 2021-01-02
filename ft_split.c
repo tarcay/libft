@@ -6,12 +6,11 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:03:10 by tarcay            #+#    #+#             */
-/*   Updated: 2021/01/02 14:50:06 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 22:04:12 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static char			**ft_malloc_error(char **tab)
 {
