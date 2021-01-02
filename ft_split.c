@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:03:10 by tarcay            #+#    #+#             */
-/*   Updated: 2021/01/02 13:56:32 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 14:04:56 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static char		**create_tab(char const *str, char **tab, char c)
 	return (tab);
 }
 
-char			**ft_split(char const *s, char c)
+const char			**ft_split(char const *s, char c)
 {
 	char	**tab;
 
