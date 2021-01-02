@@ -6,11 +6,26 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:03:10 by tarcay            #+#    #+#             */
-/*   Updated: 2021/01/02 14:08:13 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 14:23:53 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+
+char				**ft_clear_splitted(char **tab)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
 
 static char		**init_elems(char const *str, char c)
 {
@@ -30,7 +45,7 @@ static char		**init_elems(char const *str, char c)
 			nb_elems++;
 	}
 	if (!(elems_tab = malloc(sizeof(char *) * (nb_elems + 1))))
-		return (NULL);
+		return (ft_clear_splitted(elems_tab));
 	return (elems_tab);
 }
 
@@ -55,7 +70,7 @@ static char		**init_word(char const *str, char **elems_tab, char c)
 		if (str[count] == c || str[count] == 0)
 		{
 			if (!(elems_tab[index] = malloc(sizeof(char) * (nb_chars + 1))))
-				return (NULL);
+				return (ft_clear_splitted(elems_tab));
 			elems_tab[index][nb_chars + 1] = '\0';
 			index++;
 		}
