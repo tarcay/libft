@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 13:18:41 by tarcay            #+#    #+#             */
-/*   Updated: 2021/01/02 14:37:22 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 14:40:11 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
-char			**ft_split(char const *s, const char *delimiters)
+char			**ft_split(char const *s, const char *delimiters);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
