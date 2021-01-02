@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:03:10 by tarcay            #+#    #+#             */
-/*   Updated: 2021/01/02 14:28:39 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 14:38:49 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,97 +27,74 @@ char				**ft_clear_splitted(char **tab)
 	return (NULL);
 }
 
-static char		**init_elems(char const *str, char c)
+static unsigned int	ft_get_nb_strs(char const *s, const char *delimiters)
 {
-	int		count;
-	int		nb_elems;
-	char	**elems_tab;
+	unsigned int	i;
+	unsigned int	nb_strs;
 
-	count = 0;
-	nb_elems = 0;
-	while (str[count])
+	if (!s[0])
+		return (0);
+	i = 0;
+	nb_strs = 0;
+	while (s[i] && ft_strchr(delimiters, s[i]))
+		i++;
+	while (s[i])
 	{
-		while (str[count] != c && str[count])
-			count++;
-		while (str[count] == c && str[count])
-			count++;
-		if (str[count] != c && str[count])
-			nb_elems++;
+		if (ft_strchr(delimiters, s[i]))
+		{
+			nb_strs++;
+			while (s[i] && ft_strchr(delimiters, s[i]))
+				i++;
+			continue ;
+		}
+		i++;
 	}
-	if (!(elems_tab = malloc(sizeof(char *) * (nb_elems + 1))))
-		return (ft_clear_splitted(elems_tab));
-	return (elems_tab);
+	if (!ft_strchr(delimiters, s[i - 1]))
+		nb_strs++;
+	return (nb_strs);
 }
 
-static char		**init_word(char const *str, char **elems_tab, char c)
+static void			ft_get_next_str(char **next_str, unsigned int *next_str_len,
+					const char *delimiters)
 {
-	int	count;
-	int	nb_chars;
-	int	index;
+	unsigned int i;
 
-	count = 0;
-	index = 0;
-	while (str[count])
+	*next_str += *next_str_len;
+	*next_str_len = 0;
+	i = 0;
+	while (**next_str && ft_strchr(delimiters, **next_str))
+		(*next_str)++;
+	while ((*next_str)[i])
 	{
-		nb_chars = 0;
-		while (str[count] == c && str[count])
-			count++;
-		while (str[count] != c && str[count])
-		{
-			count++;
-			nb_chars++;
-		}
-		if (str[count] == c || str[count] == 0)
-		{
-			if (!(elems_tab[index] = malloc(sizeof(char) * (nb_chars + 1))))
-				return (ft_clear_splitted(elems_tab));
-			elems_tab[index][nb_chars + 1] = '\0';
-			index++;
-		}
+		if (ft_strchr(delimiters, (*next_str)[i]))
+			return ;
+		(*next_str_len)++;
+		i++;
 	}
-	return (elems_tab);
 }
 
-static char		**create_tab(char const *str, char **tab, char c)
+char				**ft_split(char const *s, const char *delimiters)
 {
-	int	count;
-	int	nb_chars;
-	int	index;
+	char			**tab;
+	char			*next_str;
+	unsigned int	next_str_len;
+	unsigned int	nb_strs;
+	unsigned int	i;
 
-	count = 0;
-	index = 0;
-	while (str[count])
+	nb_strs = ft_get_nb_strs(s, delimiters);
+	if (!(tab = malloc(sizeof(char *) * (nb_strs + 1))))
+		return (NULL);
+	i = 0;
+	next_str = (char *)s;
+	next_str_len = 0;
+	while (i < nb_strs)
 	{
-		nb_chars = 0;
-		while (str[count] == c && str[count])
-			count++;
-		while (str[count] != c && str[count])
-		{
-			tab[index][nb_chars] = str[count];
-			count++;
-			nb_chars++;
-		}
-		tab[index][nb_chars] = '\0';
-		index++;
+		ft_get_next_str(&next_str, &next_str_len, delimiters);
+		if (!(tab[i] = malloc(sizeof(char) * (next_str_len + 1))))
+			return (ft_clear_splitted(tab));
+		ft_strlcpy(tab[i], next_str, next_str_len + 1);
+		i++;
 	}
-	str[count - 1] == c ? tab[index - 1] = 0 : tab[index];
-	str[count - 1] != c ? tab[index] = 0 : 0;
-	return (tab);
-}
-
-char			**ft_split(char const *s, const char c)
-{
-	char	**tab;
-
-	if (c == '\0' && s[0] == '\0')
-	{
-		if (!(tab = malloc(sizeof(char) * 1)))
-			return (NULL);
-		tab[0] = 0;
-		return (tab);
-	}
-	tab = init_elems(s, c);
-	tab = init_word(s, tab, c);
-	tab = create_tab(s, tab, c);
+	tab[i] = NULL;
 	return (tab);
 }
