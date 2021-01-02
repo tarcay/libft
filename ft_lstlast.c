@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 16:12:13 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/26 16:12:52 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 21:43:01 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ t_list	*ft_lstlast(t_list *lst)
 	t_list	*tmp;
 
 	tmp = lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+	if (lst)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		return (tmp);
+	}
+	else
+		return (NULL);
+	
 }
