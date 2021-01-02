@@ -6,7 +6,7 @@
 /*   By: tarcay <tarcay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 12:03:10 by tarcay            #+#    #+#             */
-/*   Updated: 2020/12/31 11:50:32 by tarcay           ###   ########.fr       */
+/*   Updated: 2021/01/02 13:56:32 by tarcay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char			**ft_split(char const *s, char c)
 
 	if (c == '\0' && s[0] == '\0')
 	{
-		if (!(tab = malloc(sizeof(char*) * 1)))
+		if (!(tab = malloc(sizeof(char) * 1)))
 			return (NULL);
 		tab[0] = 0;
 		return (tab);
